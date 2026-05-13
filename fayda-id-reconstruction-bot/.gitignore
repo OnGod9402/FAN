@@ -28,12 +28,6 @@ coverage/
 Thumbs.db
 
 # Assets (must be provided separately)
-assets/bg_front.png
-assets/bg_back.png
-assets/eth_flag.png
-assets/national_id_logo.png
-assets/fonts/
-assets/face-api-models/
 
 # Local dev guide
 LOCAL_SETUP.md
