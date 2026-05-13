@@ -521,8 +521,10 @@ export function buildConversationScene(
 
       if (!bg.classifications) bg.classifications = [];
 
-      // Instantly start processing in background
-      const processPromise = ocrService.quickClassify(imgBuffer).then((res) => ({ ...res, origBuffer: imgBuffer }));
+      // Serialize native operations through mutex to prevent heap corruption
+      const processPromise = nativeMutex.runExclusive(() =>
+        ocrService.quickClassify(imgBuffer)
+      ).then((res) => ({ ...res, origBuffer: imgBuffer }));
       bg.classifications.push(processPromise);
 
       const count = bg.classifications.length;
