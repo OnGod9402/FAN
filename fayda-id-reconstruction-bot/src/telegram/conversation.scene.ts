@@ -1,5 +1,6 @@
 import { Logger } from '@nestjs/common';
 import { Markup, Scenes } from 'telegraf';
+import { Mutex } from 'async-mutex';
 import { SessionService } from '../session/session.service';
 import { OcrService } from '../ocr/ocr.service';
 import { PhotoProcessorService } from '../photo-processor/photo-processor.service';
@@ -9,6 +10,10 @@ import { BackgroundTaskService } from './background-task.service';
 import { ConversationStep, SessionData } from '../session/session.types';
 import { validateFan, validateFin } from '../validators/validators';
 import { Decoder } from 'cbor-x';
+
+// Global mutex to serialize native addon operations (canvas, ONNX, face-api)
+// and prevent C++ heap corruption from concurrent access
+const nativeMutex = new Mutex();
 
 type BotContext = Scenes.WizardContext;
 type Lang = 'en' | 'am';
@@ -540,50 +545,56 @@ export function buildConversationScene(
 
       // We have all 3! Start final resolution in the background to avoid 90s Telegraf timeout
       Promise.all(bg.classifications).then(async (classificationResults) => {
-        const leftovers: any[] = [];
-        
-        // Attempt assignments
-        for (const res of classificationResults) {
-          const s = sessionService.get(userId)!;
-          if (res.type === 'front' && !s._gotFront) {
-            sessionService.merge(userId, { _gotFront: true, _frontScreenshotBuffer: res.origBuffer } as Partial<SessionData>);
-            bg.frontOcr = ocrService.extractFrontCard(res.processedBuffer, res.rawText).catch(() => ({}));
-          } else if (res.type === 'back' && !s._gotBack) {
-            sessionService.merge(userId, { _gotBack: true, _backScreenshotBuffer: res.origBuffer } as Partial<SessionData>);
-            bg.backOcr = ocrService.extractBackCard(res.processedBuffer, res.rawText).catch(() => ({}));
-            bg.qrData = ocrService.decodeQrData(res.origBuffer).catch(() => null);
-          } else if (res.type === 'portrait' && !s._gotPortrait) {
-            sessionService.merge(userId, { _gotPortrait: true, _portraitScreenshotBuffer: res.origBuffer } as Partial<SessionData>);
-            bg.portrait = photoService.processPortrait(res.origBuffer).then(b => photoService.removeBackground(b)).catch(() => Buffer.alloc(0));
-          } else {
-            leftovers.push(res);
+        // Acquire mutex to serialize native addon operations (prevents heap corruption)
+        const release = await nativeMutex.acquire();
+        try {
+          const leftovers: any[] = [];
+          
+          // Attempt assignments
+          for (const res of classificationResults) {
+            const s = sessionService.get(userId)!;
+            if (res.type === 'front' && !s._gotFront) {
+              sessionService.merge(userId, { _gotFront: true, _frontScreenshotBuffer: res.origBuffer } as Partial<SessionData>);
+              bg.frontOcr = ocrService.extractFrontCard(res.processedBuffer, res.rawText).catch(() => ({}));
+            } else if (res.type === 'back' && !s._gotBack) {
+              sessionService.merge(userId, { _gotBack: true, _backScreenshotBuffer: res.origBuffer } as Partial<SessionData>);
+              bg.backOcr = ocrService.extractBackCard(res.processedBuffer, res.rawText).catch(() => ({}));
+              bg.qrData = ocrService.decodeQrData(res.origBuffer).catch(() => null);
+            } else if (res.type === 'portrait' && !s._gotPortrait) {
+              sessionService.merge(userId, { _gotPortrait: true, _portraitScreenshotBuffer: res.origBuffer } as Partial<SessionData>);
+              bg.portrait = photoService.processPortrait(res.origBuffer).then(b => photoService.removeBackground(b)).catch(() => Buffer.alloc(0));
+            } else {
+              leftovers.push(res);
+            }
           }
-        }
 
-        // Assign leftover unknowns to missing slots
-        const s2 = sessionService.get(userId)!;
-        const missing: ('front' | 'back' | 'portrait')[] = [];
-        if (!s2._gotFront) missing.push('front');
-        if (!s2._gotBack) missing.push('back');
-        if (!s2._gotPortrait) missing.push('portrait');
+          // Assign leftover unknowns to missing slots
+          const s2 = sessionService.get(userId)!;
+          const missing: ('front' | 'back' | 'portrait')[] = [];
+          if (!s2._gotFront) missing.push('front');
+          if (!s2._gotBack) missing.push('back');
+          if (!s2._gotPortrait) missing.push('portrait');
 
-        for (let i = 0; i < leftovers.length && missing.length > 0; i++) {
-          const u = leftovers[i];
-          const assignTo = missing.shift()!;
-          if (assignTo === 'front') {
-            sessionService.merge(userId, { _gotFront: true, _frontScreenshotBuffer: u.origBuffer } as Partial<SessionData>);
-            bg.frontOcr = ocrService.extractFrontCard(u.processedBuffer, u.rawText).catch(() => ({}));
-          } else if (assignTo === 'back') {
-            sessionService.merge(userId, { _gotBack: true, _backScreenshotBuffer: u.origBuffer } as Partial<SessionData>);
-            bg.backOcr = ocrService.extractBackCard(u.processedBuffer, u.rawText).catch(() => ({}));
-            bg.qrData = ocrService.decodeQrData(u.origBuffer).catch(() => null);
-          } else if (assignTo === 'portrait') {
-            sessionService.merge(userId, { _gotPortrait: true, _portraitScreenshotBuffer: u.origBuffer } as Partial<SessionData>);
-            bg.portrait = photoService.processPortrait(u.origBuffer).then(b => photoService.removeBackground(b)).catch(() => Buffer.alloc(0));
+          for (let i = 0; i < leftovers.length && missing.length > 0; i++) {
+            const u = leftovers[i];
+            const assignTo = missing.shift()!;
+            if (assignTo === 'front') {
+              sessionService.merge(userId, { _gotFront: true, _frontScreenshotBuffer: u.origBuffer } as Partial<SessionData>);
+              bg.frontOcr = ocrService.extractFrontCard(u.processedBuffer, u.rawText).catch(() => ({}));
+            } else if (assignTo === 'back') {
+              sessionService.merge(userId, { _gotBack: true, _backScreenshotBuffer: u.origBuffer } as Partial<SessionData>);
+              bg.backOcr = ocrService.extractBackCard(u.processedBuffer, u.rawText).catch(() => ({}));
+              bg.qrData = ocrService.decodeQrData(u.origBuffer).catch(() => null);
+            } else if (assignTo === 'portrait') {
+              sessionService.merge(userId, { _gotPortrait: true, _portraitScreenshotBuffer: u.origBuffer } as Partial<SessionData>);
+              bg.portrait = photoService.processPortrait(u.origBuffer).then(b => photoService.removeBackground(b)).catch(() => Buffer.alloc(0));
+            }
           }
-        }
 
-        await showReviewDialog(ctx, userId, lang, sessionService, bgTaskService, cardService);
+          await showReviewDialog(ctx, userId, lang, sessionService, bgTaskService, cardService);
+        } finally {
+          release();
+        }
       }).catch(err => {
         logger.error(`Background processing failed: ${err}`);
       });
