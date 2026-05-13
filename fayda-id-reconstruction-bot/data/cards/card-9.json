@@ -1,0 +1,32 @@
+{
+  "id": 9,
+  "createdAt": "2026-05-13T13:29:21.590Z",
+  "updatedAt": "2026-05-13T13:29:21.590Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-9.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-9.png",
+  "data": {
+    "nameAmharic": "ነአማ አባድር ቃሲም",
+    "nameEnglish": "Naima Abadir Kasim",
+    "dobEthiopian": "01/01/1996",
+    "dobGregorian": "2003/Sep/12",
+    "sexAmharic": "ሴት",
+    "sexEnglish": "Female",
+    "expiryEthiopian": "2026/09/03",
+    "expiryGregorian": "2034/May/11",
+    "issueEthiopian": "2018/09/05",
+    "issueGregorian": "2026/May/13",
+    "fan": "5638159204761053",
+    "phone": "0909594318",
+    "fin": "FIN 4983 5241 9067",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አርሲ",
+    "zoneEnglish": "Arsi",
+    "woredaAmharic": "ጉና",
+    "woredaEnglish": "Guna",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

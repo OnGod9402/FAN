@@ -1,0 +1,32 @@
+{
+  "id": 10,
+  "createdAt": "2026-05-13T13:31:53.980Z",
+  "updatedAt": "2026-05-13T13:31:53.980Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-10.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-10.png",
+  "data": {
+    "nameAmharic": "አስናቀች ይገዙ ደለለኝ",
+    "nameEnglish": "Asnakech Yigezu Delelegn",
+    "dobEthiopian": "13/06/1996",
+    "dobGregorian": "2004/Feb/21",
+    "sexAmharic": "ሴት",
+    "sexEnglish": "Female",
+    "expiryEthiopian": "2026/09/02",
+    "expiryGregorian": "2034/May/10",
+    "issueEthiopian": "2018/09/05",
+    "issueGregorian": "2026/May/13",
+    "fan": "5869185946093407",
+    "phone": "0949613581",
+    "fin": "FIN 8416 9701 8917",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አዳማ ከተማ አስተዳደር - ቦኩ ሻናን",
+    "zoneEnglish": "Adama City Administration - Boku Shanan",
+    "woredaAmharic": "አሮሬቲ",
+    "woredaEnglish": "Aroreti",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

@@ -122,6 +122,10 @@ export class TelegramService implements OnModuleInit, OnModuleDestroy {
         const layoutBuffer = await this.a4LayoutService.generateA4Mirrored(cards);
         await ctx.replyWithDocument({ source: layoutBuffer, filename: 'print_a4_layout.png' });
         await ctx.telegram.deleteMessage(ctx.chat.id, msg.message_id);
+        // Auto-reset counter and clear queue after successful print
+        this.historyService.resetCounter();
+        this.historyService.clearQueue();
+        this.logger.log('Print successful — counter reset to 0, queue cleared');
       } catch (err) {
         this.logger.error(`A4 printing failed: ${(err as Error).message}`);
         await ctx.reply(`❌ Failed to generate A4 sheet: ${(err as Error).message}`);

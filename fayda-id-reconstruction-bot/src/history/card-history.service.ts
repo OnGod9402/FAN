@@ -176,4 +176,8 @@ export class CardHistoryService implements OnModuleInit {
   getLastCards(): Buffer[] {
     return this.queue;
   }
+
+  clearQueue(): void {
+    this.queue = [];
+  }
 }
