@@ -28,6 +28,12 @@ export class BackgroundRemover {
 
   async removeBackground(portraitBuffer: Buffer): Promise<Buffer> {
     try {
+      // Skip AI removal if disabled (prevents native ONNX crashes on some Linux servers)
+      if (process.env.DISABLE_AI_BG === 'true') {
+        this.logger.debug('AI BG removal disabled via DISABLE_AI_BG env var');
+        return await this.fallbackRemoveBackground(portraitBuffer);
+      }
+
       await this.ensureLoaded();
 
       if (this.removeBackgroundFn) {
