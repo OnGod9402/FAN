@@ -338,7 +338,7 @@ async function showReviewDialog(
   if (cardService && !bg.qrImage) {
     const portraitPromise = bg.portrait ?? Promise.resolve(Buffer.alloc(0));
     bg.qrImage = portraitPromise.then(portrait =>
-      cardService.precomputeQr(session, portrait)
+      nativeMutex.runExclusive(() => cardService.precomputeQr(session, portrait))
     ).catch(() => Buffer.alloc(0));
     logger.log(`[${userId}] QR pre-computation started in background`);
   }
