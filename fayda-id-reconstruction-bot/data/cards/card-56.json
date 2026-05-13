@@ -1,0 +1,29 @@
+{
+  "id": 56,
+  "createdAt": "2026-05-07T12:22:54.806Z",
+  "updatedAt": "2026-05-07T12:25:27.151Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-56.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-56.png",
+  "data": {
+    "nameAmharic": "አፀደ አለባቸው ከበደ",
+    "nameEnglish": "Atsede Alebachew Kedebe",
+    "dobEthiopian": "26/11/1972",
+    "dobGregorian": "1980/Aug/02",
+    "sexEnglish": "Female",
+    "expiryEthiopian": "2026/08/26",
+    "expiryGregorian": "2034/May/04",
+    "issueEthiopian": "2018/08/29",
+    "issueGregorian": "2026/May/07",
+    "fin": "FIN 7641 0516 7429",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አዳማ ከተማ አስተዳደር - ዳቤ",
+    "zoneEnglish": "Adama City Administration - Dabe",
+    "woredaAmharic": "ጨፌ",
+    "woredaEnglish": "Chafe",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

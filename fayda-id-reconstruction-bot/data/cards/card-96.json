@@ -1,0 +1,32 @@
+{
+  "id": 96,
+  "createdAt": "2026-05-13T09:31:09.449Z",
+  "updatedAt": "2026-05-13T09:31:09.449Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-96.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-96.png",
+  "data": {
+    "nameAmharic": "አረባ ዩሱፍ ሙሳ",
+    "nameEnglish": "Areba Yusuf Musa",
+    "dobEthiopian": "01/05/1984",
+    "dobGregorian": "1992/Jan/10",
+    "sexAmharic": "ወንድ",
+    "sexEnglish": "Male",
+    "expiryEthiopian": "2026/09/02",
+    "expiryGregorian": "2034/May/10",
+    "issueEthiopian": "2018/09/05",
+    "issueGregorian": "2026/May/13",
+    "fan": "3376207563270984",
+    "phone": "0920714702",
+    "fin": "FIN 7382 1703 7160",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አዳማ ከተማ አስተዳደር - ቦኩ ሻናን",
+    "zoneEnglish": "Adama City Administration - Boku Shanan",
+    "woredaAmharic": "ቶርባን ኦቦ",
+    "woredaEnglish": "Torban Obo",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

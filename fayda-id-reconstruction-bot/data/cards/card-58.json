@@ -1,0 +1,31 @@
+{
+  "id": 58,
+  "createdAt": "2026-05-07T12:48:15.660Z",
+  "updatedAt": "2026-05-07T12:48:15.660Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-58.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-58.png",
+  "data": {
+    "nameAmharic": "አረጋሸ ተስፋዬ ገመቹ",
+    "nameEnglish": "Aregash Tesfaye Gemechu",
+    "dobEthiopian": "27/06/1978",
+    "dobGregorian": "1986/Mar/06",
+    "sexAmharic": "ሴት",
+    "sexEnglish": "Female",
+    "expiryEthiopian": "2026/07/12",
+    "expiryGregorian": "2034/Mar/21",
+    "issueEthiopian": "2018/08/29",
+    "issueGregorian": "2026/May/07",
+    "phone": "0988307035",
+    "fin": "FIN 6850 1392 4317",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አርሲ",
+    "zoneEnglish": "Arsi",
+    "woredaAmharic": "ጠና",
+    "woredaEnglish": "Tena",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

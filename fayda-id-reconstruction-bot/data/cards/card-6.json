@@ -1,0 +1,31 @@
+{
+  "id": 6,
+  "createdAt": "2026-05-13T12:43:41.954Z",
+  "updatedAt": "2026-05-13T12:43:41.954Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-6.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-6.png",
+  "data": {
+    "nameAmharic": "አማኔ ከዲር ቶሎላ",
+    "nameEnglish": "Amane Kedir Tolola",
+    "dobEthiopian": "24/08/1963",
+    "dobGregorian": "1971/May/02",
+    "sexAmharic": "ሴት",
+    "sexEnglish": "Female",
+    "expiryEthiopian": "2026/08/26",
+    "issueEthiopian": "2018/09/05",
+    "issueGregorian": "2026/May/13",
+    "fan": "6517529745823570",
+    "phone": "0953711166",
+    "fin": "FIN 3104 6985 9630",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አርሲ",
+    "zoneEnglish": "Arsi",
+    "woredaAmharic": "ጠና",
+    "woredaEnglish": "Tena",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 84,
+  "createdAt": "2026-05-12T08:58:13.666Z",
+  "updatedAt": "2026-05-12T08:58:13.666Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-84.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-84.png",
+  "data": {
+    "nameAmharic": "ገለቶ ሱልጣን ፈቶ ፦",
+    "nameEnglish": "Geleto Sultan Fato",
+    "dobEthiopian": "25/10/1983",
+    "dobGregorian": "1991/Jul/02",
+    "sexAmharic": "ወንድ",
+    "sexEnglish": "Male",
+    "expiryEthiopian": "2026/09/01",
+    "issueEthiopian": "2018/09/04",
+    "issueGregorian": "2026/May/12",
+    "fan": "2169375184589079",
+    "phone": "0926658143",
+    "fin": "FIN 6497 1674 5937",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አርሲ",
+    "zoneEnglish": "Arsi",
+    "woredaAmharic": "ጠና",
+    "woredaEnglish": "Tena",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

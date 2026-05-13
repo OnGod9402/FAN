@@ -1,0 +1,32 @@
+{
+  "id": 71,
+  "createdAt": "2026-05-08T06:18:17.542Z",
+  "updatedAt": "2026-05-08T06:20:38.584Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-71.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-71.png",
+  "data": {
+    "nameAmharic": "አረበ ደቦ አማኖ",
+    "nameEnglish": "Areba Dabo Amano",
+    "dobEthiopian": "08/08/1976",
+    "dobGregorian": "1984/Apr/16",
+    "sexAmharic": "ወንድ",
+    "sexEnglish": "Male",
+    "expiryEthiopian": "2026/08/22",
+    "expiryGregorian": "2034/Apr/30",
+    "issueEthiopian": "2018/08/30",
+    "issueGregorian": "2026/May/08",
+    "fan": "4027680571296423",
+    "phone": "0991798628",
+    "fin": "FIN 6192 5309 3605",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አርሲ",
+    "zoneEnglish": "Arsi",
+    "woredaAmharic": "ሱዴ",
+    "woredaEnglish": "Sude",
+    "lang": "en",
+    "theme": "warm"
+  }
+}

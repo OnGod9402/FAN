@@ -1,0 +1,32 @@
+{
+  "id": 8,
+  "createdAt": "2026-05-13T12:47:15.466Z",
+  "updatedAt": "2026-05-13T12:47:15.466Z",
+  "imagePath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\card-8.png",
+  "portraitPath": "C:\\Users\\natna\\OneDrive\\Desktop\\fayda\\fayda-id-reconstruction-bot\\data\\cards\\portrait-8.png",
+  "data": {
+    "nameAmharic": "አየሉ ተፈራ ቶላ",
+    "nameEnglish": "Ayelu Tefera Tola",
+    "dobEthiopian": "14/06/1963",
+    "dobGregorian": "1971/Feb/21",
+    "sexAmharic": "ሴት",
+    "sexEnglish": "Female",
+    "expiryEthiopian": "2026/08/28",
+    "expiryGregorian": "2034/May/06",
+    "issueEthiopian": "2018/09/05",
+    "issueGregorian": "2026/May/13",
+    "fan": "2403865096743907",
+    "phone": "0970873162",
+    "fin": "FIN 4073 6512 9172",
+    "nationalityAmharic": "ኢትዮጵያ",
+    "nationalityEnglish": "Ethiopian",
+    "regionAmharic": "ኦሮሚያ",
+    "regionEnglish": "Oromia",
+    "zoneAmharic": "አርሲ",
+    "zoneEnglish": "Arsi",
+    "woredaAmharic": "ጠና",
+    "woredaEnglish": "Tena",
+    "lang": "en",
+    "theme": "warm"
+  }
+}
